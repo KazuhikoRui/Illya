@@ -1,0 +1,6 @@
+giphy_client
+discord.py
+youtube_dl
+tenorpy
+discord
+PyNaCl
