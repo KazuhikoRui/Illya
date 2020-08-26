@@ -151,7 +151,7 @@ class Other(commands.Cog):
 		embed.add_field(name = 'Команда: тг', value = 'Найти гифку с Tenor (Пример: Иля тг котик )')
 		embed.add_field(name = 'Команда: чмок', value = 'Чмокнит кого-нибудь (Пример: Иля поцелуй Ваню)')
 		embed.add_field(name = 'Команда: кусь', value = 'Кусить кого-нибудь (Пример: Иля кусь Ваню)')
-		embed.add_field(name = 'Команда: поцелуй', value = 'Поцеловать кого-нибудь (Пример: Иля поцеловать Ваню)')
+		embed.add_field(name = 'Команда: поцеловать', value = 'Поцеловать кого-нибудь (Пример: Иля поцеловать Ваню)')
 		
 		await ctx.send(embed = embed)
 		
