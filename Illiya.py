@@ -94,7 +94,7 @@ class Music(commands.Cog):
 	async def ЫБОШ(self, ctx):
 		'''АРМАНЕН'''
 		await ctx.author.voice.channel.connect()
-		url = 'https://www.youtube.com/watch?v=txHKylslfrE'
+		url = 'https://www.youtube.com/watch?v=13BQ6c3ZTYM'
 		player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
 		ctx.voice_client.play(player, after=lambda e: print('Упс, ошибка плеера: %s' % e) if e else None)
 		await ctx.send('АРМАНЕН!')
