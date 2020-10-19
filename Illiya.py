@@ -15,6 +15,7 @@ import traceback
 from async_timeout import timeout
 from functools import partial
 
+
 bot = commands.Bot(command_prefix = ('Иллия, ', 'Иллия ', 'иллия ', 'иллия, ','Иля, ', 'Иля ', 'иля, ', 'иля '))
 api_instance = giphy_client.DefaultApi()
 
@@ -28,24 +29,26 @@ status = itertools.cycle(['братике', 'дырочке', 'коробке', 
 
 #-----------------------------------------------------------------------------------------------
 
-ytdlopts = {
-    'format': 'bestaudio/best',
-    'outtmpl': 'downloads/%(extractor)s-%(id)s-%(title)s.%(ext)s',
-    'restrictfilenames': True,
-    'noplaylist': True,
-    'nocheckcertificate': True,
-    'ignoreerrors': False,
-    'logtostderr': False,
-    'quiet': True,
-    'no_warnings': True,
-    'default_search': 'auto',
-    'source_address': '0.0.0.0'  # ipv6 addresses cause issues sometimes
-}
+ytdlopts =  {
+        'format': 'bestaudio/best',
+        'extractaudio': True,
+        'audioformat': 'mp3',
+        'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+        'restrictfilenames': True,
+        'noplaylist': True,
+        'nocheckcertificate': True,
+        'ignoreerrors': False,
+        'logtostderr': False,
+        'quiet': True,
+        'no_warnings': True,
+        'default_search': 'auto',
+        'source_address': '0.0.0.0',
+    }
 
 ffmpegopts = {
-    'before_options': '-nostdin',
-    'options': '-vn'
-}
+        'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
+        'options': '-vn',
+    }
 
 ytdl = YoutubeDL(ytdlopts)
 
@@ -417,7 +420,7 @@ class Other(commands.Cog):
 		embed.add_field(name = 'Команда: тг', value = 'Найти гифку с Tenor (Пример: Иля тг котик )')
 		embed.add_field(name = 'Команда: чмок', value = 'Чмокнит кого-нибудь (Пример: Иля поцелуй Ваню)')
 		embed.add_field(name = 'Команда: кусь', value = 'Кусить кого-нибудь (Пример: Иля кусь Ваню)')
-		embed.add_field(name = 'Команда: поцелуй', value = 'Поцеловать кого-нибудь (Пример: Иля поцеловать Ваню)')
+		embed.add_field(name = 'Команда: поцеловать', value = 'Поцеловать кого-нибудь (Пример: Иля поцеловать Ваню)')
 		
 		await ctx.send(embed = embed)
 		
@@ -488,16 +491,7 @@ async def on_ready():
 	change_status.start()
 	print('Бот запущен')
 
-@bot.event
-async def on_command_error(ctx, error):
-	if isinstance(error, commands.MissingRequiredArgument):
-		await ctx.send('Я не понимаю, ты что-то забыл дописать')
-		await ctx.send('https://tenor.com/view/anime-fate-illya-cute-funny-gif-12866145')
-		
-@bot.event
-async def on_command_error(ctx, error):
-	if isinstance(error, commands.CommandNotFound):
-		await ctx.send('https://tenor.com/view/illya-blink-anime-eyes-cute-gif-16059710')
+
 
 @tasks.loop(seconds = 10)
 async def change_status():
