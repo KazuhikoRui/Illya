@@ -32,7 +32,7 @@ status = itertools.cycle(['братике', 'дырочке', 'коробке', 
 ytdlopts =  {
         'format': 'bestaudio/best',
         'extractaudio': True,
-        'audioformat': 'mp4',
+        'audioformat': 'mp3',
         'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
         'restrictfilenames': True,
         'noplaylist': True,
