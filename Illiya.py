@@ -6,7 +6,7 @@ from discord.utils import get
 import random
 import giphy_client
 from giphy_client.rest import ApiException
-import tenorpy
+import TenGiphPy
 import os
 import asyncio
 import itertools
@@ -21,7 +21,8 @@ api_instance = giphy_client.DefaultApi()
 
 giphy_token = os.environ.get('G_TOKEN')
 token = os.environ.get('BOT_TOKEN')
-t = tenorpy.Tenor()
+t_token = os.environ.get('T_TOKEN')
+t = TenGiphPy.Tenor(token=t_token)
 
 bot.remove_command('help')
 
