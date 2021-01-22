@@ -1,6 +1,6 @@
 giphy_client
 discord.py
 youtube_dl == 2021.1.16
-tenorpy == 1.0.4
+TenGiphPy
 discord
 PyNaCl
