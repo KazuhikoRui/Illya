@@ -11,7 +11,7 @@ import asyncio
 
 from async_timeout import timeout
 from functools import partial
-from Stay_a_Live import stay_a_live
+
 
 bot = commands.Bot(command_prefix = ('Иллия, ', 'Иллия ', 'иллия ', 'иллия, ','Иля, ', 'Иля ', 'иля, ', 'иля '))
 api_instance = giphy_client.DefaultApi()
@@ -535,7 +535,7 @@ async def change_status():
 
 #-------------------------------------
 
-stay_a_live()
+
 
 bot.add_cog(Search(bot))
 bot.add_cog(Other(bot))
