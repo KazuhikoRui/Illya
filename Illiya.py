@@ -527,6 +527,13 @@ class Search(commands.Cog):
 async def on_ready():
 	change_status.start()
 	print('Бот запущен')
+			
+@bot.event
+async def on_command_error(ctx, error):
+	if isinstance(error, commands.MissingPermissions):
+		await ctx.send('Плохой братик! Тебе нельзя такое делать!')
+	elif isinstance(error, commands.MissingRequiredArgument):
+		await ctx.send('Чего-то не хватает, братик...')
 
 
 @tasks.loop(seconds = 10)
