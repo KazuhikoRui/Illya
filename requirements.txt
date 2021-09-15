@@ -4,3 +4,4 @@ youtube_dl == 2021.4.1
 TenGiphPy
 discord
 PyNaCl
+discord-Together
