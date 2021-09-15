@@ -487,7 +487,7 @@ class Other(commands.Cog):
 
 
 	@commands.command()
-	async def Рыбалочка(self, ctx):
+	async def рыбалочка(self, ctx):
 		link = await togetherControl.create_link(ctx.author.voice.channel.id, 'fishing')
 		await ctx.send(f"Достаю удочки! Идем рыбачить с братиком!\n{link}")
 
