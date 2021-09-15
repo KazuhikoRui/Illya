@@ -488,8 +488,11 @@ class Other(commands.Cog):
 
 	@commands.command()
 	async def рыбалочка(self, ctx):
-		link = await togetherControl.create_link(ctx.author.voice.channel.id, 'fishing')
-		await ctx.send(f"Достаю удочки! Идем рыбачить с братиком!\n{link}")
+		try:
+			link = await togetherControl.create_link(ctx.author.voice.channel.id, 'fishing')
+			await ctx.send(f"Достаю удочки! Идем рыбачить с братиком!\n{link}")
+		except:
+			await ctx.send("Тебя нет в нужном голосовом канале!")
 
 #-------------------------------------
 async def search_gifs(query):
