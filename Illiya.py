@@ -8,12 +8,14 @@ from giphy_client.rest import ApiException
 import TenGiphPy
 import os
 import asyncio
+from discordTogether import DiscordTogether
 
 from async_timeout import timeout
 from functools import partial
 
 
 bot = commands.Bot(command_prefix = ('Иллия, ', 'Иллия ', 'иллия ', 'иллия, ','Иля, ', 'Иля ', 'иля, ', 'иля '))
+togetherControl = DiscordTogether(bot)
 api_instance = giphy_client.DefaultApi()
 
 giphy_token = os.environ.get('G_TOKEN')
@@ -484,7 +486,10 @@ class Other(commands.Cog):
 		await ctx.send(embed = embed)
 
 
-
+	@commands.command()
+	async def Рыбалочка(self, ctx):
+		link = await togetherControl.create_link(ctx.author.voice.channel.id, 'youtube')
+		await ctx.send(f"Достаю удочки! Идем рыбачить с братиком!\n{link}")
 
 #-------------------------------------
 async def search_gifs(query):
